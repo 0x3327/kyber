@@ -24,7 +24,7 @@ fn pack_pk(r: &mut [u8], pk: &mut Polyvec, seed: &[u8]) {
 /// Arguments:   - Polyvec pk:  output public-key vector of polynomials
 ///  - [u8] seed:   output seed to generate matrix A
 ///  - const [u8] packedpk: input serialized public key
-fn unpack_pk(pk: &mut Polyvec, seed: &mut [u8], packedpk: &[u8]) {
+pub fn unpack_pk(pk: &mut Polyvec, seed: &mut [u8], packedpk: &[u8]) {
     const END: usize = KYBER_SYMBYTES + KYBER_POLYVECBYTES;
     polyvec_frombytes(pk, packedpk);
     seed[..KYBER_SYMBYTES].copy_from_slice(&packedpk[KYBER_POLYVECBYTES..END]);
@@ -109,7 +109,7 @@ fn rej_uniform(r: &mut [i16], len: usize, buf: &[u8], buflen: usize) -> usize {
     ctr
 }
 
-fn gen_a(a: &mut [Polyvec], b: &[u8]) {
+pub fn gen_a(a: &mut [Polyvec], b: &[u8]) {
     gen_matrix(a, b, false);
 }
 

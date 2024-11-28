@@ -132,7 +132,7 @@ mod avx2;
 use avx2::*;
 
 #[cfg(any(not(target_arch = "x86_64"), not(feature = "avx2")))]
-mod reference;
+pub mod reference;
 #[cfg(any(not(target_arch = "x86_64"), not(feature = "avx2")))]
 use reference::*;
 
@@ -156,7 +156,7 @@ pub use error::KyberError;
 pub use kex::*;
 pub use params::{
     KYBER_90S, KYBER_CIPHERTEXTBYTES, KYBER_K, KYBER_PUBLICKEYBYTES, KYBER_SECRETKEYBYTES,
-    KYBER_SSBYTES, KYBER_SYMBYTES,
+    KYBER_SSBYTES, KYBER_SYMBYTES, KYBER_POLYBYTES
 };
 pub use rand_core::{CryptoRng, RngCore};
 

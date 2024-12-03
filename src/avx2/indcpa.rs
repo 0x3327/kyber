@@ -31,7 +31,7 @@ fn pack_pk(r: &mut [u8], pk: &Polyvec, seed: &[u8]) {
 /// Arguments:   - Polyvec pk:     output public-key vector of polynomials
 ///  - [u8] seed:   output seed to generate matrix A
 ///  - const [u8] packedpk: input serialized public key
-fn unpack_pk(pk: &mut Polyvec, seed: &mut [u8], packedpk: &[u8]) {
+pub fn unpack_pk(pk: &mut Polyvec, seed: &mut [u8], packedpk: &[u8]) {
     unsafe {
         polyvec_frombytes(pk, packedpk);
     }

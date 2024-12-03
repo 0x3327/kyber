@@ -127,7 +127,7 @@
 compile_error!("Only one security level can be specified");
 
 #[cfg(all(target_arch = "x86_64", feature = "avx2"))]
-mod avx2;
+pub mod avx2;
 #[cfg(all(target_arch = "x86_64", feature = "avx2"))]
 use avx2::*;
 
